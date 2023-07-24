@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --primary: #065dfb;
+    --light: #fff;
+    --warning: #f06804;
+}
+/* custom css */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Rubik', sans-serif;
+}
+a {
+    text-decoration: none!important;
+}
+/* header css */
+header {
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+}
+header .nav-link .nav-item {
+    font-size: 14px;
+    color: var(--light);
+    font-weight: 600;
+    margin-left: 20px;
+}
