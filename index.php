@@ -1,3 +1,9 @@
+<?php
+    require 'functions.php';
+    $data1 = query("SELECT * FROM jurusan");
+    $data2 = query("SELECT * FROM tentang");
+    $data3 = query("SELECT * FROM staf");
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,7 +75,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"
-                  >Staff/Guru</a
+                  >Struktur organisasi</a
                 >
               </li>
               <li class="nav-item">
@@ -168,15 +174,15 @@
           <div class="judul text-center">
             <h1>Program Keahlian</h1>
           </div>
+          <?php foreach($data1 as $jur): ?>
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="main-feature-box">
               <div class="icon">
                 <i class="bi bi-wrench"></i>
               </div>
-              <h3>Teknik Kendaraan Ringan (TKR)</h3>
+              <h3><?= $jur["nama_jurusan"]; ?></h3>
               <p>
-                Teknik Kendaraan Ringan merupakan kompetensi keahlian dibidang
-                Teknik Otomotif yang..
+                  <?= $jur["keterangan"]; ?>
               </p>
               <div class="buttons">
                 <a href="" class="button3"
@@ -185,91 +191,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="main-feature-box">
-              <div class="icon">
-                <i class="bi bi-tools"></i>
-              </div>
-              <h3>Teknik Bisnis Sepeda Motor (TBSM)</h3>
-              <p>
-                Teknik dan Bisnis Sepeda Motor adalah kompetensi keahlian pada
-                Bidang Studi Keahlian Teknologi..
-              </p>
-              <div class="buttons">
-                <a href="" class="button3"
-                  >Lebih Lanjut <i class="bi bi-arrow-right-circle-fill"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="main-feature-box">
-              <div class="icon">
-                <i class="bi bi-wrench-adjustable-circle"></i>
-              </div>
-              <h3>Teknik Mekanik Industri (TMI)</h3>
-              <p>
-                Teknik Mekanik Industri adalah kompetensi keahlian yang
-                mempelajari bidang perawatan, ..
-              </p>
-              <div class="buttons">
-                <a href="" class="button3"
-                  >Lebih Lanjut <i class="bi bi-arrow-right-circle-fill"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="main-feature-box">
-              <div class="icon">
-                <i class="bi bi-gear"></i>
-              </div>
-              <h3>Teknik Permesinan (TP)</h3>
-              <p>
-                Teknik Pemesinan adalah jurusan yang mempelajari tentang energi
-                dan..
-              </p>
-              <div class="buttons">
-                <a href="" class="button3"
-                  >Lebih Lanjut <i class="bi bi-arrow-right-circle-fill"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="main-feature-box">
-              <div class="icon">
-                <i class="bi bi-pc-display-horizontal"></i>
-              </div>
-              <h3>Rekayasa Perangkat Lunak (RPL)</h3>
-              <p>
-                Rekayasa perangkat Lunak mempelajari dan mendalami semua cara
-                pengembangan..
-              </p>
-              <div class="buttons">
-                <a href="" class="button3"
-                  >Lebih Lanjut <i class="bi bi-arrow-right-circle-fill"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="main-feature-box">
-              <div class="icon">
-                <i class="bi bi-camera-reels"></i>
-              </div>
-              <h3>Teknik Audio Video (Multimedia)</h3>
-              <p>
-                Teknik Audio Video merupakan konsentrasi keahlian yang akan
-                membekali peserta didik dengan..
-              </p>
-              <div class="buttons">
-                <a href="" class="button3"
-                  >Lebih Lanjut <i class="bi bi-arrow-right-circle-fill"></i
-                ></a>
-              </div>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
@@ -282,15 +204,13 @@
           <div class="col-md-6 d-none d-lg-flex">
             <img src="./image/about/about.jpg" alt="" class="img-fluid" />
           </div>
+          <?php foreach($data2 as $about): ?>
           <div class="col-md-6">
             <div class="about-content">
               <span>Tentang</span>
-              <h2>SMK Wiraswasta Cimahi</h2>
+              <h2><?= $about["sekola"]; ?></h2>
               <p>
-                SMK Wiraswasta Cimahi adalah Sekolah Menengah Kejuruan yang
-                telah berdiri se jak tahun 1982 di kota Cimahi untuk membantu
-                pemerintah dalam membangun Generasi Mu da yang siap dan terlatih
-                dalam berkarya..
+                <?= $about["about"]; ?>
               </p>
               <div class="buttons">
                 <a href="" class="button3"
@@ -299,6 +219,7 @@
               </div>
             </div>
           </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
@@ -307,9 +228,10 @@
     <!-- staff/guru  -->
     <section class="guru mt-5 mb-5">
       <div class="container">
-        <h2 class="text-center">Staff/Guru</h2>
+        <h2 class="text-center">Struktur organisasi</h2>
       </div>
       <div class="row mt-5">
+      <?php foreach($data3 as $staf): ?>
         <div class="col-lg-4">
           <div class="single-guru-box border">
             <div class="icon">
@@ -320,86 +242,11 @@
                 alt=""
               />
             </div>
-            <h3>Drs. Yoyo Suharyo</h3>
-            <p>Jabatan : Kepala Sekolah SMK Wiraswasta Cimahi</p>
-            <p>Guru PPKN</p>
+            <h3><?= $staf["nama"]; ?></h3>
+            <p><?= $staf["jabatan"]; ?></p>
           </div>
         </div>
-        <div class="col-lg-4">
-          <div class="single-guru-box border">
-            <div class="icon">
-              <img
-                src="./image/courses/civil.png"
-                class="img-fluid"
-                width="110px"
-                alt=""
-              />
-            </div>
-            <h3>Ika Rahmatika S. Pd</h3>
-            <p>Jabatan : Kesiswaan</p>
-            <p>Guru Bahasa Inggris</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="single-guru-box border">
-            <div class="icon">
-              <img
-                src="./image/courses/civil.png"
-                class="img-fluid"
-                width="110px"
-                alt=""
-              />
-            </div>
-            <h3>Rani Anggraeni S. Pd</h3>
-            <p>Jabatan : -</p>
-            <p>Guru Matematika</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="single-guru-box border">
-            <div class="icon">
-              <img
-                src="./image/courses/civil.png"
-                class="img-fluid"
-                width="110px"
-                alt=""
-              />
-            </div>
-            <h3>Jemmy Hendrick S. Pd</h3>
-            <p>Jabatan : Kesiswaan</p>
-            <p>Guru BK & Olahraga</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="single-guru-box border">
-            <div class="icon">
-              <img
-                src="./image/courses/civil.png"
-                class="img-fluid"
-                width="110px"
-                alt=""
-              />
-            </div>
-            <h3>Teti Andriani S. Pd</h3>
-            <p>Jabatan : Kurikulum</p>
-            <p>Guru Matematika</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="single-guru-box border">
-            <div class="icon">
-              <img
-                src="./image/courses/civil.png"
-                class="img-fluid"
-                width="110px"
-                alt=""
-              />
-            </div>
-            <h3>Endang Ruhyana S. Pd</h3>
-            <p>Jabatan : Kesiswaan</p>
-            <p>Guru Olahraga</p>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </section>
     <!-- staff/guru -->

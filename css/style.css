@@ -114,7 +114,7 @@ header .nav-item .nav-link {
 .feature .main-feature-box {
     margin-bottom: 30px;
     background-color: var(--light);
-    box-shadow: 0 10px 55px rgba(137, 173, 255, 0.2);
+    box-shadow: 0 50px 100px rgba(137, 173, 255, 0.2);
     position: relative;
     padding: 25px 20px;
     z-index: 1;
@@ -197,5 +197,4 @@ header .nav-item .nav-link {
   font-size: 14px;
   text-align: justify;
 }
-
 /* footer */
